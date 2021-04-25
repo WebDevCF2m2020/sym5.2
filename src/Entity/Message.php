@@ -1,7 +1,9 @@
 <?php
 
-namespace App\\Entity;
+namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -80,6 +82,95 @@ class Message
     public function __construct()
     {
         $this->sectionIdsection = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdmessage(): ?int
+    {
+        return $this->idmessage;
+    }
+
+    public function getMessagetitle(): ?string
+    {
+        return $this->messagetitle;
+    }
+
+    public function setMessagetitle(string $messagetitle): self
+    {
+        $this->messagetitle = $messagetitle;
+
+        return $this;
+    }
+
+    public function getMessageslug(): ?string
+    {
+        return $this->messageslug;
+    }
+
+    public function setMessageslug(string $messageslug): self
+    {
+        $this->messageslug = $messageslug;
+
+        return $this;
+    }
+
+    public function getMessagetext(): ?string
+    {
+        return $this->messagetext;
+    }
+
+    public function setMessagetext(string $messagetext): self
+    {
+        $this->messagetext = $messagetext;
+
+        return $this;
+    }
+
+    public function getMessagedate(): ?\DateTimeInterface
+    {
+        return $this->messagedate;
+    }
+
+    public function setMessagedate(?\DateTimeInterface $messagedate): self
+    {
+        $this->messagedate = $messagedate;
+
+        return $this;
+    }
+
+    public function getUserIduser(): ?User
+    {
+        return $this->userIduser;
+    }
+
+    public function setUserIduser(?User $userIduser): self
+    {
+        $this->userIduser = $userIduser;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Section[]
+     */
+    public function getSectionIdsection(): Collection
+    {
+        return $this->sectionIdsection;
+    }
+
+    public function addSectionIdsection(Section $sectionIdsection): self
+    {
+        if (!$this->sectionIdsection->contains($sectionIdsection)) {
+            $this->sectionIdsection[] = $sectionIdsection;
+        }
+
+        return $this;
+    }
+
+    public function removeSectionIdsection(Section $sectionIdsection): self
+    {
+        $this->sectionIdsection->removeElement($sectionIdsection);
+
+        return $this;
     }
 
 }
