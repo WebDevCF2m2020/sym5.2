@@ -84,16 +84,26 @@ class Message
         $this->sectionIdsection = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getIdmessage(): ?int
     {
         return $this->idmessage;
     }
 
+    /**
+     * @return string|null
+     */
     public function getMessagetitle(): ?string
     {
         return $this->messagetitle;
     }
 
+    /**
+     * @param string $messagetitle
+     * @return $this
+     */
     public function setMessagetitle(string $messagetitle): self
     {
         $this->messagetitle = $messagetitle;
@@ -101,11 +111,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getMessageslug(): ?string
     {
         return $this->messageslug;
     }
 
+    /**
+     * @param string $messageslug
+     * @return $this
+     */
     public function setMessageslug(string $messageslug): self
     {
         $this->messageslug = $messageslug;
@@ -113,11 +130,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getMessagetext(): ?string
     {
         return $this->messagetext;
     }
 
+    /**
+     * @param string $messagetext
+     * @return $this
+     */
     public function setMessagetext(string $messagetext): self
     {
         $this->messagetext = $messagetext;
@@ -125,11 +149,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getMessagedate(): ?\DateTimeInterface
     {
         return $this->messagedate;
     }
 
+    /**
+     * @param \DateTimeInterface|null $messagedate
+     * @return $this
+     */
     public function setMessagedate(?\DateTimeInterface $messagedate): self
     {
         $this->messagedate = $messagedate;
@@ -137,11 +168,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return User|null
+     */
     public function getUserIduser(): ?User
     {
         return $this->userIduser;
     }
 
+    /**
+     * @param User|null $userIduser
+     * @return $this
+     */
     public function setUserIduser(?User $userIduser): self
     {
         $this->userIduser = $userIduser;
@@ -157,6 +195,10 @@ class Message
         return $this->sectionIdsection;
     }
 
+    /**
+     * @param Section $sectionIdsection
+     * @return $this
+     */
     public function addSectionIdsection(Section $sectionIdsection): self
     {
         if (!$this->sectionIdsection->contains($sectionIdsection)) {
@@ -166,6 +208,10 @@ class Message
         return $this;
     }
 
+    /**
+     * @param Section $sectionIdsection
+     * @return $this
+     */
     public function removeSectionIdsection(Section $sectionIdsection): self
     {
         $this->sectionIdsection->removeElement($sectionIdsection);

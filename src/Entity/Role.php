@@ -59,16 +59,26 @@ class Role
         $this->userIduser = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getIdrole(): ?int
     {
         return $this->idrole;
     }
 
+    /**
+     * @return string|null
+     */
     public function getRolename(): ?string
     {
         return $this->rolename;
     }
 
+    /**
+     * @param string $rolename
+     * @return $this
+     */
     public function setRolename(string $rolename): self
     {
         $this->rolename = $rolename;
@@ -76,11 +86,18 @@ class Role
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getRolevalue(): ?string
     {
         return $this->rolevalue;
     }
 
+    /**
+     * @param string $rolevalue
+     * @return $this
+     */
     public function setRolevalue(string $rolevalue): self
     {
         $this->rolevalue = $rolevalue;
@@ -88,11 +105,18 @@ class Role
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getRolecol(): ?string
     {
         return $this->rolecol;
     }
 
+    /**
+     * @param string $rolecol
+     * @return $this
+     */
     public function setRolecol(string $rolecol): self
     {
         $this->rolecol = $rolecol;
@@ -108,6 +132,10 @@ class Role
         return $this->userIduser;
     }
 
+    /**
+     * @param User $userIduser
+     * @return $this
+     */
     public function addUserIduser(User $userIduser): self
     {
         if (!$this->userIduser->contains($userIduser)) {
@@ -118,6 +146,10 @@ class Role
         return $this;
     }
 
+    /**
+     * @param User $userIduser
+     * @return $this
+     */
     public function removeUserIduser(User $userIduser): self
     {
         if ($this->userIduser->removeElement($userIduser)) {
