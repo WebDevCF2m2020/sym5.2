@@ -1,7 +1,9 @@
 <?php
 
-namespace App\\Entity;
+namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -63,6 +65,71 @@ class User
     public function __construct()
     {
         $this->roleIdrole = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIduser(): ?int
+    {
+        return $this->iduser;
+    }
+
+    public function getUserlogin(): ?string
+    {
+        return $this->userlogin;
+    }
+
+    public function setUserlogin(string $userlogin): self
+    {
+        $this->userlogin = $userlogin;
+
+        return $this;
+    }
+
+    public function getUserpwd(): ?string
+    {
+        return $this->userpwd;
+    }
+
+    public function setUserpwd(string $userpwd): self
+    {
+        $this->userpwd = $userpwd;
+
+        return $this;
+    }
+
+    public function getUsermail(): ?string
+    {
+        return $this->usermail;
+    }
+
+    public function setUsermail(string $usermail): self
+    {
+        $this->usermail = $usermail;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getRoleIdrole(): Collection
+    {
+        return $this->roleIdrole;
+    }
+
+    public function addRoleIdrole(Role $roleIdrole): self
+    {
+        if (!$this->roleIdrole->contains($roleIdrole)) {
+            $this->roleIdrole[] = $roleIdrole;
+        }
+
+        return $this;
+    }
+
+    public function removeRoleIdrole(Role $roleIdrole): self
+    {
+        $this->roleIdrole->removeElement($roleIdrole);
+
+        return $this;
     }
 
 }
