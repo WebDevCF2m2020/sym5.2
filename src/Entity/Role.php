@@ -1,7 +1,9 @@
 <?php
 
-namespace App\\Entity;
+namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +57,74 @@ class Role
     public function __construct()
     {
         $this->userIduser = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdrole(): ?int
+    {
+        return $this->idrole;
+    }
+
+    public function getRolename(): ?string
+    {
+        return $this->rolename;
+    }
+
+    public function setRolename(string $rolename): self
+    {
+        $this->rolename = $rolename;
+
+        return $this;
+    }
+
+    public function getRolevalue(): ?string
+    {
+        return $this->rolevalue;
+    }
+
+    public function setRolevalue(string $rolevalue): self
+    {
+        $this->rolevalue = $rolevalue;
+
+        return $this;
+    }
+
+    public function getRolecol(): ?string
+    {
+        return $this->rolecol;
+    }
+
+    public function setRolecol(string $rolecol): self
+    {
+        $this->rolecol = $rolecol;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUserIduser(): Collection
+    {
+        return $this->userIduser;
+    }
+
+    public function addUserIduser(User $userIduser): self
+    {
+        if (!$this->userIduser->contains($userIduser)) {
+            $this->userIduser[] = $userIduser;
+            $userIduser->addRoleIdrole($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserIduser(User $userIduser): self
+    {
+        if ($this->userIduser->removeElement($userIduser)) {
+            $userIduser->removeRoleIdrole($this);
+        }
+
+        return $this;
     }
 
 }
