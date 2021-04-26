@@ -92,7 +92,7 @@ class AppFixtures extends Fixture
             $title = "Le titre $i";
             $message->setMessagetitle($title);
             $message->setMessageslug("le-titre-$i");
-            $message->setMessagetext("Du texte $i - " . uniqid());
+            $message->setMessagetext("Du texte $i - " . uniqid()." ".md5(uniqid())." ".sha1(uniqid())." et encore du blabla pour allonger la chaîne de caractère. ".uniqid()." ".sha1(uniqid())." Et là ça devrait être suffisant!");
             $message->setMessagedate(new \DateTime());
             // select random section
             $sections = $manager->getRepository(Section::class)->findAll();
