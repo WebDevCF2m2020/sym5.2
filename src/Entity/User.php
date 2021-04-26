@@ -67,26 +67,16 @@ class User
         $this->roleIdrole = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * @return int|null
-     */
     public function getIduser(): ?int
     {
         return $this->iduser;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUserlogin(): ?string
     {
         return $this->userlogin;
     }
 
-    /**
-     * @param string $userlogin
-     * @return $this
-     */
     public function setUserlogin(string $userlogin): self
     {
         $this->userlogin = $userlogin;
@@ -94,18 +84,11 @@ class User
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUserpwd(): ?string
     {
         return $this->userpwd;
     }
 
-    /**
-     * @param string $userpwd
-     * @return $this
-     */
     public function setUserpwd(string $userpwd): self
     {
         $this->userpwd = $userpwd;
@@ -113,18 +96,11 @@ class User
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUsermail(): ?string
     {
         return $this->usermail;
     }
 
-    /**
-     * @param string $usermail
-     * @return $this
-     */
     public function setUsermail(string $usermail): self
     {
         $this->usermail = $usermail;
@@ -140,10 +116,6 @@ class User
         return $this->roleIdrole;
     }
 
-    /**
-     * @param Role $roleIdrole
-     * @return $this
-     */
     public function addRoleIdrole(Role $roleIdrole): self
     {
         if (!$this->roleIdrole->contains($roleIdrole)) {
@@ -153,10 +125,6 @@ class User
         return $this;
     }
 
-    /**
-     * @param Role $roleIdrole
-     * @return $this
-     */
     public function removeRoleIdrole(Role $roleIdrole): self
     {
         $this->roleIdrole->removeElement($roleIdrole);

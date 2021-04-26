@@ -59,26 +59,16 @@ class Section
         $this->messageIdmessage = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * @return int|null
-     */
     public function getIdsection(): ?int
     {
         return $this->idsection;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSectiontitle(): ?string
     {
         return $this->sectiontitle;
     }
 
-    /**
-     * @param string $sectiontitle
-     * @return $this
-     */
     public function setSectiontitle(string $sectiontitle): self
     {
         $this->sectiontitle = $sectiontitle;
@@ -86,18 +76,11 @@ class Section
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSectionslug(): ?string
     {
         return $this->sectionslug;
     }
 
-    /**
-     * @param string $sectionslug
-     * @return $this
-     */
     public function setSectionslug(string $sectionslug): self
     {
         $this->sectionslug = $sectionslug;
@@ -105,18 +88,11 @@ class Section
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSectiondesc(): ?string
     {
         return $this->sectiondesc;
     }
 
-    /**
-     * @param string|null $sectiondesc
-     * @return $this
-     */
     public function setSectiondesc(?string $sectiondesc): self
     {
         $this->sectiondesc = $sectiondesc;
@@ -132,10 +108,6 @@ class Section
         return $this->messageIdmessage;
     }
 
-    /**
-     * @param Message $messageIdmessage
-     * @return $this
-     */
     public function addMessageIdmessage(Message $messageIdmessage): self
     {
         if (!$this->messageIdmessage->contains($messageIdmessage)) {
@@ -146,10 +118,6 @@ class Section
         return $this;
     }
 
-    /**
-     * @param Message $messageIdmessage
-     * @return $this
-     */
     public function removeMessageIdmessage(Message $messageIdmessage): self
     {
         if ($this->messageIdmessage->removeElement($messageIdmessage)) {
