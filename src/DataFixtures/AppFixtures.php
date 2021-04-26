@@ -94,8 +94,8 @@ class AppFixtures extends Fixture
             $message->setMessageslug("le-titre-$i");
             $message->setMessagetext("Du texte $i - " . uniqid());
             $message->setMessagedate(new \DateTime());
+            // select random section
             $sections = $manager->getRepository(Section::class)->findAll();
-            $manager->persist($message);
             foreach ($sections as $item) {
                 $rand = mt_rand(0,1);
                 if($rand) {
@@ -103,6 +103,9 @@ class AppFixtures extends Fixture
 
                     }
                 }
+            // select random user
+            $user = $manager->getRepository(User::class)->findOneBy(['userlogin'=>'Mikhawa']);
+            $message->setUserIduser($user);
             $manager->persist($message);
         }
 

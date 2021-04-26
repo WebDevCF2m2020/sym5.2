@@ -24,7 +24,7 @@
                         <p>{{ item.messagetext }}</p>
                         <h6>
                             Le {{ item.getMessagedate|date("d/m/Y à H:i") }}
-                            {# par {{ item.getUserIduser.userlogin }} #}</h6>
+                             par {{ item.userIduser.userlogin }} </h6>
                         <hr>
                     {% endfor %}
                 {% endblock %}
