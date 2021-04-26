@@ -20,8 +20,14 @@ class HomeController extends AbstractController
             ->getRepository(Section::class)
             ->findAll();
 
+        // messages for content
+        $messages = $this->getDoctrine()
+            ->getRepository(Message::class)
+            ->findBy([], ['idmessage' => 'desc']);
+
         return $this->render('home/index.html.twig', [
             'sectionsMenuHaut' => $sections,
+            'messages' => $messages,
         ]);
     }
 }

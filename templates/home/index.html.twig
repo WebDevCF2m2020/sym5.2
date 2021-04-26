@@ -4,18 +4,30 @@
 
 
     {% block menuhaut %}
-    {% for sections in sectionsMenuHaut %}
-        <li class="nav-item">
-            <a class="nav-link" href="#">{{ sections.sectiontitle }}</a>
-        </li>
-    {% endfor %}
+        {% for sections in sectionsMenuHaut %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ sections.sectiontitle }}</a>
+            </li>
+        {% endfor %}
     {% endblock %}
     {% block content %}
         <main role="main" class="flex-shrink-0">
             <div class="container">
                 <h1 class="mt-5">Home</h1>
                 <hr>
-
+                {% block subcontent %}
+                    {% for item in messages %}
+                        <h3>{{ item.messagetitle }}</h3>
+                        <h5>{% for section in item.sectionIdsection %}
+                                {{ section.sectiontitle }} |
+                            {% endfor %}</h5>
+                        <p>{{ item.messagetext }}</p>
+                        <h6>
+                            Le {{ item.getMessagedate|date("d/m/Y à H:i") }}
+                            {# par {{ item.getUserIduser.userlogin }} #}</h6>
+                        <hr>
+                    {% endfor %}
+                {% endblock %}
             </div>
         </main>
     {% endblock %}
