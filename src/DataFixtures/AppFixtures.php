@@ -103,7 +103,7 @@ class AppFixtures extends Fixture
 
                     }
                 }
-            // select random user
+            // select default user
             $user = $manager->getRepository(User::class)->findOneBy(['userlogin'=>'Mikhawa']);
             $message->setUserIduser($user);
             $manager->persist($message);
