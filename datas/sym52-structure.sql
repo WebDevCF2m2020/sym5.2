@@ -32,10 +32,10 @@ ENGINE = InnoDB;
 -- Table `sym52`.`role`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sym52`.`role` (
-  `idrole` INT UNSIGNED NULL,
+  `idrole` INT UNSIGNED NULL AUTO_INCREMENT,
   `rolename` VARCHAR(100) NOT NULL,
-  `rolevalue` VARCHAR(45) NOT NULL,
-  `rolecol` VARCHAR(20) NOT NULL,
+  `roleslug` VARCHAR(45) NOT NULL,
+  `rolevalue` VARCHAR(60) NOT NULL,
   PRIMARY KEY (`idrole`),
   UNIQUE INDEX `rolename_UNIQUE` (`rolename` ASC))
 ENGINE = InnoDB;
