@@ -15,8 +15,13 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
+        // sections for menuhaut
+        $sections = $this->getDoctrine()
+            ->getRepository(Section::class)
+            ->findAll();
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'sectionsMenuHaut' => $sections,
         ]);
     }
 }
