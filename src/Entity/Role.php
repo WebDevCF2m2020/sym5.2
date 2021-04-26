@@ -40,7 +40,7 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="rolevalue", type="string", length=20, nullable=false)
+     * @ORM\Column(name="rolevalue", type="string", length=60, nullable=false)
      */
     private $rolevalue;
 
