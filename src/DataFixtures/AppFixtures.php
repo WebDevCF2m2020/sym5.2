@@ -13,22 +13,23 @@ class AppFixtures extends Fixture
     {
         // Role's datas
         $role = new Role();
-        $role->setRolename("Admin");
+        $role->setRolename("Administrator");
+        $role->setRoleslug("admin");
         $role->setRolevalue("{'role':'ROLE_ADMIN'}");
-        $role->setRolecol("");
         $manager->persist($role);
 
         $role = new Role();
         $role->setRolename("Moderator");
+        $role->setRoleslug("moderator");
         $role->setRolevalue("{'role':'ROLE_MOD'}");
-        $role->setRolecol("");
         $manager->persist($role);
 
         $role = new Role();
         $role->setRolename("User");
+        $role->setRoleslug("user");
         $role->setRolevalue("{'role':'ROLE_USER'}");
-        $role->setRolecol("");
         $manager->persist($role);
+
 
         $manager->flush();
     }

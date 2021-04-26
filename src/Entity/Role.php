@@ -33,16 +33,16 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="rolevalue", type="string", length=45, nullable=false)
+     * @ORM\Column(name="roleslug", type="string", length=45, nullable=false)
      */
-    private $rolevalue;
+    private $roleslug;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rolecol", type="string", length=20, nullable=false)
+     * @ORM\Column(name="rolevalue", type="string", length=20, nullable=false)
      */
-    private $rolecol;
+    private $rolevalue;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -76,6 +76,18 @@ class Role
         return $this;
     }
 
+    public function getRoleslug(): ?string
+    {
+        return $this->roleslug;
+    }
+
+    public function setRoleslug(string $roleslug): self
+    {
+        $this->roleslug = $roleslug;
+
+        return $this;
+    }
+
     public function getRolevalue(): ?string
     {
         return $this->rolevalue;
@@ -84,18 +96,6 @@ class Role
     public function setRolevalue(string $rolevalue): self
     {
         $this->rolevalue = $rolevalue;
-
-        return $this;
-    }
-
-    public function getRolecol(): ?string
-    {
-        return $this->rolecol;
-    }
-
-    public function setRolecol(string $rolecol): self
-    {
-        $this->rolecol = $rolecol;
 
         return $this;
     }
