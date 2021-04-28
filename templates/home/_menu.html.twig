@@ -1,0 +1,5 @@
+{% for sections in sectionsMenuHaut %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ path("section",{"slug":sections.sectionslug}) }}">{{ sections.sectiontitle }}</a>
+    </li>
+{% endfor %}

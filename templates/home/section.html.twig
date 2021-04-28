@@ -4,18 +4,26 @@
 
 
     {% block menuhaut %}
-        {% for sections in sectionsMenuHaut %}
-            <li class="nav-item">
-                <a class="nav-link" href="#">{{ sections.sectiontitle }}</a>
-            </li>
-        {% endfor %}
+        {{ include('home/_menu.html.twig') }}
     {% endblock %}
     {% block content %}
         <main role="main" class="flex-shrink-0">
             <div class="container">
                 <h1 class="mt-5">Section {{ section.sectiontitle }}</h1>
                 <hr>
-
+                {% block subcontent %}
+                    {% for item in messages %}
+                        <h3>{{ item.messagetitle }}</h3>
+                        <h5>{% for section in item.sectionIdsection %}
+                                {{ section.sectiontitle }} |
+                            {% endfor %}</h5>
+                        <p>{{ item.messagetext|u.truncate(50, '...', false) }}</p>
+                        <h6>
+                            Le {{ item.getMessagedate|date("d/m/Y à H:i") }}
+                            par {{ item.userIduser.userlogin }} </h6>
+                        <hr>
+                    {% endfor %}
+                {% endblock %}
             </div>
         </main>
     {% endblock %}
