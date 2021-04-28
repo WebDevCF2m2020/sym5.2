@@ -9,7 +9,7 @@
     {% block content %}
         <main role="main" class="flex-shrink-0">
             <div class="container">
-                <h1 class="mt-5">Section {{ section.sectiontitle }}</h1>
+                <h1 class="mt-5">Section {{ section.sectiontitle }} ({{ messages|length }})</h1>
                 <hr>
                 {% block subcontent %}
                     {% for item in messages %}
