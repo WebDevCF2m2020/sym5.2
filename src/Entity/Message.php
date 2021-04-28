@@ -5,10 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MessageRepository;
 
 /**
  * Message
- *
+ * @ORM\Entity(repositoryClass=MessageRepository::class)
  * @ORM\Table(name="message", uniqueConstraints={@ORM\UniqueConstraint(name="messageslug_UNIQUE", columns={"messageslug"})}, indexes={@ORM\Index(name="fk_message_user1_idx", columns={"user_iduser"})})
  * @ORM\Entity
  */

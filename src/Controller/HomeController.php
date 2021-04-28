@@ -47,12 +47,16 @@ class HomeController extends AbstractController
             ->getRepository(Section::class)
             ->findOneBy(["sectionslug" => $slug]);
 
+        // All category's message
+        $messages = $this->getDoctrine()
+            ->getRepository(Message::class)
+            ->findAllMessagesBySection($section->getIdsection());
 
         // Twig's view
         return $this->render('home/section.html.twig', [
             'sectionsMenuHaut' => $sections,
             'section' => $section,
-            //'messages' => $messages,
+            'messages' => $messages,
         ]);
     }
 }

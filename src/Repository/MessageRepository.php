@@ -13,4 +13,23 @@ class MessageRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Message::class);
     }
+    /**
+     * @return Message[]
+     */
+    public function findAllMessagesBySection(int $idsection): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT m
+            FROM App\Entity\Message m
+            JOIN App\Entity\Section s
+            WHERE m.sectionIdsection = s.idsection 
+                and s.idsection = :section
+            ORDER BY m.messagedate DESC'
+        )->setParameter('section', $idsection);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }
