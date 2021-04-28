@@ -4,11 +4,7 @@
 
 
     {% block menuhaut %}
-        {% for sections in sectionsMenuHaut %}
-            <li class="nav-item">
-                <a class="nav-link" href="#">{{ sections.sectiontitle }}</a>
-            </li>
-        {% endfor %}
+        {{ include('home/_menu.html.twig') }}
     {% endblock %}
     {% block content %}
         <main role="main" class="flex-shrink-0">
