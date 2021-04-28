@@ -1,0 +1,21 @@
+{% extends 'bootstrap_4.html.twig' %}
+
+{% block title %}{{ parent() }}Section {{ section.sectiontitle }}{% endblock %}
+
+
+    {% block menuhaut %}
+        {% for sections in sectionsMenuHaut %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ sections.sectiontitle }}</a>
+            </li>
+        {% endfor %}
+    {% endblock %}
+    {% block content %}
+        <main role="main" class="flex-shrink-0">
+            <div class="container">
+                <h1 class="mt-5">Section {{ section.sectiontitle }}</h1>
+                <hr>
+
+            </div>
+        </main>
+    {% endblock %}
