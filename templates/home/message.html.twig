@@ -9,20 +9,20 @@
     {% block content %}
         <main role="main" class="flex-shrink-0">
             <div class="container">
-                <h1 class="mt-5">Home</h1>
+                <h1 class="mt-5">{{ message.messagetitle }}</h1>
                 <hr>
                 {% block subcontent %}
 
-                        <h3>{{ message.messagetitle }}</h3>
-                        <h5>{% for section in message.sectionIdsection %}
-                                <a
-                                href="{{ path("section",{"slug":section.sectionslug}) }}">{{ section.sectiontitle }}</a>{% if not loop.last  %} | {% endif %}
-                            {% endfor %}</h5>
-                        <p>{{ message.messagetext }}</p>
-                        <h6>
-                            Le {{ message.getMessagedate|date("d/m/Y à H:i") }}
-                            par {{ message.userIduser.userlogin }} </h6>
-                        <hr>
+                    <h3>{{ message.messagetitle }}</h3>
+                    <h5>{% for section in message.sectionIdsection %}
+                            <a
+                            href="{{ path("section",{"slug":section.sectionslug}) }}">{{ section.sectiontitle }}</a>{% if not loop.last %} | {% endif %}
+                        {% endfor %}</h5>
+                    <p>{{ message.messagetext }}</p>
+                    <h6>
+                        Le {{ message.getMessagedate|date("d/m/Y à H:i") }}
+                        par {{ message.userIduser.userlogin }} </h6>
+                    <hr>
 
                 {% endblock %}
             </div>

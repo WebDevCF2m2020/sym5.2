@@ -70,7 +70,6 @@ class HomeController extends AbstractController
             ->getRepository(Section::class)
             ->findAll();
 
-
         // message detail
         $message = $this->getDoctrine()
             ->getRepository(Message::class)
