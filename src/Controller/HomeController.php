@@ -47,6 +47,14 @@ class HomeController extends AbstractController
             ->getRepository(Section::class)
             ->findOneBy(["sectionslug" => $slug]);
 
+        if(!$section){
+            // Twig's view error 404
+            return $this->render('home/error404.html.twig', [
+                'sectionsMenuHaut' => $sections,
+                'errormessage' => "Cette section n'existe pas",
+            ]);
+        }
+
         // All category's message
         $messages = $this->getDoctrine()
             ->getRepository(Message::class)
@@ -74,6 +82,14 @@ class HomeController extends AbstractController
         $message = $this->getDoctrine()
             ->getRepository(Message::class)
             ->findOneBy(["messageslug" => $slug]);
+
+        if(!$message){
+            // Twig's view error 404
+            return $this->render('home/error404.html.twig', [
+                'sectionsMenuHaut' => $sections,
+                'errormessage' => "Cet article n'existe plus",
+            ]);
+        }
 
         // Twig's view
         return $this->render('home/message.html.twig', [
