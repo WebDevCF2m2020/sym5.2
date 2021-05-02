@@ -59,4 +59,28 @@ class HomeController extends AbstractController
             'messages' => $messages,
         ]);
     }
+
+    /**
+     * @Route("/article/{slug}", name="article")
+     */
+    public function article(string $slug): Response
+    {
+        // sections to menuhaut
+        $sections = $this->getDoctrine()
+            ->getRepository(Section::class)
+            ->findAll();
+
+
+        // message detail
+        $message = $this->getDoctrine()
+            ->getRepository(Message::class)
+            ->find($slug);
+
+        // Twig's view
+        return $this->render('home/message.html.twig', [
+            'sectionsMenuHaut' => $sections,
+            'message' => $message,
+        ]);
+    }
+
 }
