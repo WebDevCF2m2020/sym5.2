@@ -74,7 +74,7 @@ class HomeController extends AbstractController
         // message detail
         $message = $this->getDoctrine()
             ->getRepository(Message::class)
-            ->find($slug);
+            ->findOneBy(["messageslug" => $slug]);
 
         // Twig's view
         return $this->render('home/message.html.twig', [

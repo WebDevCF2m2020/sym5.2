@@ -19,6 +19,7 @@
                                 href="{{ path("section",{"slug":section.sectionslug}) }}">{{ section.sectiontitle }}</a>{% if not loop.last  %} | {% endif %}
                             {% endfor %}</h5>
                         <p>{{ item.messagetext|u.truncate(120, '...', false) }}</p>
+                        <p><a href="{{ path("article",{"slug":item.messageslug}) }}">Lire la suite</a></p>
                         <h6>
                             Le {{ item.getMessagedate|date("d/m/Y à H:i") }}
                             par {{ item.userIduser.userlogin }} </h6>
