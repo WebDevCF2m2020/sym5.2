@@ -59,6 +59,13 @@ class Role
         $this->userIduser = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     *
+     */
+    public function __toString(){
+        return $this->getRolevalue();
+    }
+
     public function getIdrole(): ?int
     {
         return $this->idrole;

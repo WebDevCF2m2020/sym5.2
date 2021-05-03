@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 /**
  * User
  *
@@ -138,7 +139,10 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return $this->getRoleIdrole();
+        // TODO: retrouver le rôle par requête depuis la table role!
+        return ['ROLE_ADMIN'];
+
+
     }
 
     /**

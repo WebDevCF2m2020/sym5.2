@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -77,7 +78,13 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator
     {
         // Check the user's password or other credentials and return true or false
         // If there are no credentials to check, you can just return true
-        throw new \Exception('TODO: check the credentials inside '.__FILE__);
+        if($credentials['password'] == $user->getPassword()){
+            //var_dump($credentials);
+            //$credentials['role']= $user->getRoleIdrole();
+            return true;
+        }else{
+            throw new CustomUserMessageAuthenticationException('Error password');
+        }
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
