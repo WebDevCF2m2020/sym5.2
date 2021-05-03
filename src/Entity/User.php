@@ -138,15 +138,15 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return $this->getRoleIdrole();
     }
 
     /**
      * @inheritDoc
      */
-    public function getPassword()
+    public function getPassword(): string
     {
-        // TODO: Implement getPassword() method.
+        return $this->getUserpwd();
     }
 
     /**
@@ -160,9 +160,9 @@ class User implements UserInterface
     /**
      * @inheritDoc
      */
-    public function getUsername()
+    public function getUsername():string
     {
-        // TODO: Implement getUsername() method.
+        return $this->getUserlogin();
     }
 
     /**
