@@ -18,19 +18,19 @@ class AppFixtures extends Fixture
         $role = new Role();
         $role->setRolename("Administrator");
         $role->setRoleslug("admin");
-        $role->setRolevalue("{'role':'ROLE_ADMIN'}");
+        $role->setRolevalue("ROLE_ADMIN");
         $manager->persist($role);
 
         $role = new Role();
         $role->setRolename("Moderator");
         $role->setRoleslug("moderator");
-        $role->setRolevalue("{'role':'ROLE_MOD'}");
+        $role->setRolevalue("ROLE_MOD");
         $manager->persist($role);
 
         $role = new Role();
         $role->setRolename("User");
         $role->setRoleslug("user");
-        $role->setRolevalue("{'role':'ROLE_USER'}");
+        $role->setRolevalue("ROLE_USER");
         $manager->persist($role);
 
         $manager->flush();

@@ -5,7 +5,9 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\User\UserInterface;
+
 
 
 
@@ -143,9 +145,11 @@ class User implements UserInterface
     {
         // TODO: retrouver le rôle par requête depuis la table role!
 
-        $roles = $this->roles;
+        $role = $this->roleIdrole->current();
+
+        $roles[0] = $role->__toString();
         $roles[] = 'ROLE_USER';
-        return array_unique($roles);
+        return $roles;
 
 
     }

@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Json;
 
 /**
  * Role
@@ -40,7 +41,7 @@ class Role
     /**
      * @var string
      *
-     * @ORM\Column(name="rolevalue", type="json", length=60, nullable=false)
+     * @ORM\Column(name="rolevalue", type="string", length=60, nullable=false)
      */
     private $rolevalue;
 
@@ -95,10 +96,15 @@ class Role
         return $this;
     }
 
-    public function getRolevalue(): ?string
+    /**
+     * @return string
+     */
+    public function getRolevalue(): string
     {
         return $this->rolevalue;
     }
+
+
 
     public function setRolevalue(string $rolevalue): self
     {
