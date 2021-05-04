@@ -79,8 +79,6 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator
         // Check the user's password or other credentials and return true or false
         // If there are no credentials to check, you can just return true
         if($credentials['password'] == $user->getPassword()){
-            //var_dump($credentials);
-            //$credentials['role']= $user->getRoleIdrole();
             return true;
         }else{
             throw new CustomUserMessageAuthenticationException('Error password');

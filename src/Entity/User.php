@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 
+
 /**
  * User
  *
@@ -60,6 +61,7 @@ class User implements UserInterface
      * )
      */
     private $roleIdrole;
+
 
     /**
      * Constructor
@@ -137,10 +139,13 @@ class User implements UserInterface
     /**
      * @inheritDoc
      */
-    public function getRoles()
+    public function getRoles(): array
     {
         // TODO: retrouver le rôle par requête depuis la table role!
-        return ['ROLE_ADMIN'];
+
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+        return array_unique($roles);
 
 
     }
