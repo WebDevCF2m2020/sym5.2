@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Role
  *
@@ -59,6 +60,13 @@ class Role
         $this->userIduser = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     *
+     */
+    public function __toString(){
+        return $this->getRolename();
+    }
+
     public function getIdrole(): ?int
     {
         return $this->idrole;
@@ -88,10 +96,15 @@ class Role
         return $this;
     }
 
-    public function getRolevalue(): ?string
+    /**
+     * @return string
+     */
+    public function getRolevalue(): string
     {
         return $this->rolevalue;
     }
+
+
 
     public function setRolevalue(string $rolevalue): self
     {

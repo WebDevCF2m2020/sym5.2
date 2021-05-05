@@ -22,7 +22,7 @@
                         <p><a href="{{ path("article",{"slug":item.messageslug}) }}">Lire la suite</a></p>
                         <h6>
                             Le {{ item.getMessagedate|date("d/m/Y à H:i") }}
-                            par {{ item.userIduser.userlogin }} </h6>
+                            par {{ item.userIduser.userlogin }} {#  item.userIduser.roleIdrole.current #} </h6>
                         <hr>
                     {% endfor %}
                 {% endblock %}

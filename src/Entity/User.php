@@ -5,6 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+
+
 
 /**
  * User
@@ -12,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="userlogin_UNIQUE", columns={"userlogin"}), @ORM\UniqueConstraint(name="usermail_UNIQUE", columns={"usermail"})})
  * @ORM\Entity
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -58,6 +63,7 @@ class User
      * )
      */
     private $roleIdrole;
+
 
     /**
      * Constructor
@@ -132,4 +138,59 @@ class User
         return $this;
     }
 
+
+    /**
+     * @return array
+     */
+    public function getRoles(): array
+    {
+
+        // get current Role
+        $role = $this->roleIdrole->current();
+
+        // get this value
+        $roles[] = $role->getRolevalue();
+        // get the default value
+        $roles[] = 'ROLE_USER';
+        // return value without duplicate ROLE (for ROLE_USER)
+        return array_unique($roles);
+
+
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->getUserpwd();
+    }
+
+
+    /**
+     * @return string|void|null
+     */
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getUsername():string
+    {
+        return $this->getUserlogin();
+    }
+
+
+    /**
+     *
+     */
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
 }
