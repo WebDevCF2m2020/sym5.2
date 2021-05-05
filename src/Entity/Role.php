@@ -64,7 +64,7 @@ class Role
      *
      */
     public function __toString(){
-        return $this->getRolevalue();
+        return $this->getRolename();
     }
 
     public function getIdrole(): ?int

@@ -138,49 +138,38 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getRoles(): array
     {
-        // TODO: retrouver le rôle par requête depuis la table role!
 
         $role = $this->roleIdrole->current();
 
-        $roles[0] = $role->__toString();
+        $roles[0] = $role->getRolevalue();
         $roles[] = 'ROLE_USER';
         return $roles;
 
 
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getPassword(): string
     {
         return $this->getUserpwd();
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getUsername():string
     {
         return $this->getUserlogin();
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
