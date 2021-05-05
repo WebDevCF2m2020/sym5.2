@@ -139,37 +139,56 @@ class User implements UserInterface
     }
 
 
+    /**
+     * @return array
+     */
     public function getRoles(): array
     {
 
+        // get current Role
         $role = $this->roleIdrole->current();
 
-        $roles[0] = $role->getRolevalue();
+        // get this value
+        $roles[] = $role->getRolevalue();
+        // get the default value
         $roles[] = 'ROLE_USER';
-        return $roles;
+        // return value without duplicate ROLE (for ROLE_USER)
+        return array_unique($roles);
 
 
     }
 
 
+    /**
+     * @return string
+     */
     public function getPassword(): string
     {
         return $this->getUserpwd();
     }
 
 
+    /**
+     * @return string|void|null
+     */
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
     }
 
 
+    /**
+     * @return string
+     */
     public function getUsername():string
     {
         return $this->getUserlogin();
     }
 
 
+    /**
+     *
+     */
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
